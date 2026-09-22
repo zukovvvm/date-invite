@@ -1,0 +1,227 @@
+/* === Сброс === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe0ec 0%, #ffc2d6 50%, #ffb3cc 100%);
+  color: #5a1a35;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === Плавающие сердечки на фоне === */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.6;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* === Карточка === */
+.card {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 50px 40px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(214, 51, 108, 0.25);
+  text-align: center;
+  animation: cardIn 0.5s ease;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Шаги (экраны) === */
+.step {
+  display: none;
+}
+
+.step.step-active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Тексты === */
+.question {
+  font-family: "Dancing Script", cursive;
+  font-size: 42px;
+  color: #d6336c;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #a64d6b;
+  margin-bottom: 30px;
+}
+
+.final-note {
+  color: #a64d6b;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+/* === Кнопки === */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 60px;
+}
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 34px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-yes {
+  background-color: #ff4d8d;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(255, 77, 141, 0.4);
+}
+
+.btn-yes:hover {
+  background-color: #e63b7a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(255, 77, 141, 0.55);
+}
+
+.btn-no {
+  background-color: #f1e4ea;
+  color: #a64d6b;
+  transition:
+    left 0.15s ease,
+    top 0.15s ease,
+    transform 0.15s ease;
+}
+
+.btn-no.runaway {
+  position: fixed;
+  z-index: 10;
+}
+
+/* === Выбор места === */
+.places {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.place {
+  background-color: #fff0f5;
+  border: 2px solid #ffd1e0;
+  border-radius: 14px;
+  padding: 20px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #d6336c;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.place:hover {
+  background-color: #ffe0ec;
+  border-color: #ff4d8d;
+  transform: translateY(-3px);
+}
+
+.place-emoji {
+  font-size: 26px;
+}
+
+/* === Адаптив === */
+@media (max-width: 480px) {
+  .card {
+    padding: 35px 22px;
+  }
+
+  .question {
+    font-size: 32px;
+  }
+
+  .places {
+    grid-template-columns: 1fr;
+  }
+}

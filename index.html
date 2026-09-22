@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приглашение на свидание 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hearts" id="hearts"></div>
+
+    <main class="card" id="main-card">
+      <section class="step step-active" id="step-1">
+        <h1 class="question">Ты пойдёшь со мной на свидание?</h1>
+        <p class="subtitle">Пожалуйста, скажи «да» 🥺</p>
+
+        <div class="buttons">
+          <button class="btn btn-yes" id="btn-yes">Да 💖</button>
+          <button class="btn btn-no" id="btn-no">Нет</button>
+        </div>
+      </section>
+
+      <section class="step" id="step-2">
+        <h2 class="question">Урааа! 🎉</h2>
+        <p class="subtitle">Куда хочешь пойти?</p>
+
+        <div class="places">
+          <button class="place" data-place="Кафе">
+            <span class="place-emoji">☕</span>
+            <span>Уютное кафе</span>
+          </button>
+          <button class="place" data-place="Кино">
+            <span class="place-emoji">🎬</span>
+            <span>Кино</span>
+          </button>
+          <button class="place" data-place="Прогулка в парке">
+            <span class="place-emoji">🌳</span>
+            <span>Прогулка</span>
+          </button>
+          <button class="place" data-place="Ресторан">
+            <span class="place-emoji">🍝</span>
+            <span>Ресторан</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="step" id="step-3">
+        <h2 class="question">Отлично! 💕</h2>
+        <p class="subtitle" id="final-text">Договорились!</p>
+        <p class="final-note">С нетерпением жду нашей встречи 😊</p>
+        <button class="btn btn-yes" id="btn-restart">Начать заново</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
